@@ -1,0 +1,113 @@
+---
+title: 'Multi-Objective Reinforcement Learning for Infectious Disease Control with Application to COVID-19 Spread'
+output:
+  # html_document:
+  #   df_print: paged
+  md_document:
+  variant: markdown_github
+---
+
+This repository is the official implementation of the paper "Multi-Objective Reinforcement Learning for Infectious Disease Control with Application to COVID-19 Spread" submitted to NeurIPS 2020. 
+
+## Requirements
+* R version 3.6.3 (2020-02-29)
+* Main packages for the proposed estimation procedure
+    - abind
+    - crayon
+    - doFuture
+    - doParallel
+    - foreach
+    - ggplot2
+    - ggpubr
+    - grid
+    - gridExtra
+  	- matrixStats
+  	- parallel
+  	- plyr
+  	- randomForest
+  	
+
+* Additional packages for experiments
+    - gtools
+    - dplyr
+    - tidyr
+
+
+
+## File Overview
+1. Files in the main folder: scripts for reproducing results. 
+
+  * `4_2_sir_pred.R`: script to conduct estimation and validation of the transition model in Section 4.2.
+  * `4_3_pareto_eval.R`: script to conduct evaluation of the Pareto optimal policies in Section 4.3 and Figure in C.3.
+  * `C_2_simu_valid.R`: script to conduct cross validation in Section C.2.
+  
+  
+2. Files in the `/code` folder
+    1. the proposed method
+        * `SIR.R`: main functions for the generalized dynamics model
+        * `RL.R`: main functions for the reinforcement learning algorithms
+        * `utility.R`: helper functions for SIR model and RL parts
+    2. experiments
+        * `simu.R`: main functions for simulation experiments
+        * `simu_utility.R`: helper functions for simulation experiments
+
+## Reproduce Results
+
+To reproduce ourexperiment results in the paper, change the working directory to the main folder which includs this README file, modify the `main_path` in the script, run commands below, and read the corresponding outputs from `/output`. 
+
+###  Preview data described in Section 4.1
+
+```{r}
+data = readRDS("./data.rds")
+names(data)
+str(data$Beijing)
+```
+
+
+
+
+###  Generate results in Section 4.2
+Run `4.2_sir_pred.R` to get the following results:
+
+  1. Figure 2 (./output/Figure2.png) 
+  2. Table 1 (./output/Table1.txt)
+  3. Fitted cost in Section C1 in the supplementary (./output/Cost_in_C1.txt)
+
+
+```{r}
+cat(readLines("./output/Table1.txt"), sep = '\n')
+```
+
+
+```{r label, fig.cap = "Figure2: Validation results for the six important cities in China."}
+knitr::include_graphics("./output/Figure2.png")
+```
+
+
+
+
+###  Generate result in Section 4.3
+Run `4.3_pareto_eval.R` to get Figure 3 (./output/Figure3.png) 
+
+```{r, fig.cap = "Figure 3: Cumulative epidemiological costs and economic costs following different policies, averaged over 100 replications. The closer to the left bottom corner, the better."}
+knitr::include_graphics("./output/Figure3.png")
+```
+ 
+
+###  Generate result in Section C.1 in supplementary
+```{r}
+cat(readLines("./output/Cost_in_C1.txt"), sep = '\n')
+```
+
+###  Generate result in Section C.2 in supplementary
+  
+```{r}
+average_error_ratio = readRDS("./output/C2_err.rds");average_error_ratio
+```  
+    
+###  Generate result in Section C.3 in supplementary
+Run `4.3_pareto_eval.R` to get Figure 1 in supplementary (./output/Figure1_supp.png)
+ 
+```{r, fig.cap = "Figure 1 in supplementary: Cumulative epidemiological cost and economic cost following different policies, averaged over 100 replications. The closer to the left bottom corner, the better. With the shaded areas indicating the 95% confidence regions."}
+knitr::include_graphics("./output/Figure1_supp.png")
+``` 
