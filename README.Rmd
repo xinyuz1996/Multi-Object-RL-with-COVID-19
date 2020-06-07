@@ -103,7 +103,7 @@ cat(readLines("./output/Cost_in_C1.txt"), sep = '\n')
 average_error_ratio = readRDS("./output/C2_err.rds");average_error_ratio
 ```  
     
-###  Generate result in Section C.3 in supplementary
+###  Generate results in Section C.3 in supplementary
 Run `4.3_pareto_eval.R` to get Figure 1 in supplementary (./output/Figure1_supp.png)
  
 ```{r, fig.cap = "Figure 1 in supplementary: Cumulative epidemiological cost and economic cost following different policies, averaged over 100 replications. The closer to the left bottom corner, the better. With the shaded areas indicating the 95% confidence regions."}

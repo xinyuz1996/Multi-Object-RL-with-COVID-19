@@ -147,7 +147,7 @@ left bottom corner, the better.
     ## average_error_ratio 
     ##           0.1833549
 
-### Generate result in Section C.3 in supplementary
+### Generate results in Section C.3 in supplementary
 
 Run `4.3_pareto_eval.R` to get Figure 1 in supplementary
 (./output/Figure1\_supp.png)
