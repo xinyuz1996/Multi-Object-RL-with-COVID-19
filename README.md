@@ -119,7 +119,7 @@ Run `4.2_sir_pred.R` to get the following results:
 Figure2: Validation results for the six important cities in China.
 </p>
 
-### Generate result in Section 4.3
+### Generate results in Section 4.3
 
 Run `4.3_pareto_eval.R` to get Figure 3 (./output/Figure3.png)
 
@@ -132,7 +132,7 @@ different policies, averaged over 100 replications. The closer to the
 left bottom corner, the better.
 </p>
 
-### Generate result in Section C.1 in supplementary
+### Generate results in Section C.1 in supplementary
 
     cat(readLines("./output/Cost_in_C1.txt"), sep = '\n')
 
@@ -140,7 +140,7 @@ left bottom corner, the better.
     ## C_2: 0.368 0.239 
     ## C_3: 0.484 0.181
 
-### Generate result in Section C.2 in supplementary
+### Generate results in Section C.2 in supplementary
 
     average_error_ratio = readRDS("./output/C2_err.rds");average_error_ratio
 

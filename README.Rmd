@@ -1,10 +1,8 @@
 ---
 title: 'Multi-Objective Reinforcement Learning for Infectious Disease Control with Application to COVID-19 Spread'
 output:
-  html_document:
-    df_print: paged
-  # md_document:
-  # variant: markdown_github
+  md_document:
+  variant: markdown_github
 ---
 
 This repository is the official implementation of the paper "Multi-Objective Reinforcement Learning for Infectious Disease Control with Application to COVID-19 Spread" submitted to NeurIPS 2020. 
