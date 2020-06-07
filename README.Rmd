@@ -86,7 +86,7 @@ knitr::include_graphics("./output/Figure2.png")
 
 
 
-###  Generate result in Section 4.3
+###  Generate results in Section 4.3
 Run `4.3_pareto_eval.R` to get Figure 3 (./output/Figure3.png) 
 
 ```{r, fig.cap = "Figure 3: Cumulative epidemiological costs and economic costs following different policies, averaged over 100 replications. The closer to the left bottom corner, the better."}
@@ -94,12 +94,12 @@ knitr::include_graphics("./output/Figure3.png")
 ```
  
 
-###  Generate result in Section C.1 in supplementary
+###  Generate results in Section C.1 in supplementary
 ```{r}
 cat(readLines("./output/Cost_in_C1.txt"), sep = '\n')
 ```
 
-###  Generate result in Section C.2 in supplementary
+###  Generate results in Section C.2 in supplementary
   
 ```{r}
 average_error_ratio = readRDS("./output/C2_err.rds");average_error_ratio
